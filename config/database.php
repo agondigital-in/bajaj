@@ -28,8 +28,13 @@ function loadEnv($path) {
     }
 }
 
-// Load .env file
-loadEnv(__DIR__ . '/../.env');
+// Load .env.local first (for local development), then .env
+$envPath = __DIR__ . '/../';
+if (file_exists($envPath . '.env.local')) {
+    loadEnv($envPath . '.env.local');
+} else {
+    loadEnv($envPath . '.env');
+}
 
 // Database Configuration from environment variables
 define('DB_HOST', getenv('DB_HOST') ?: 'localhost');
