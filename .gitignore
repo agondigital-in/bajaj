@@ -1,0 +1,82 @@
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Database
+*.sql.gz
+*.sql.zip
+database_backup/
+
+# Uploads
+uploads/
+uploads/screenshots/*
+!uploads/screenshots/.gitkeep
+
+# Logs
+logs/
+*.log
+error.log
+access.log
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# PHP
+vendor/
+composer.phar
+composer.lock
+.phpunit.result.cache
+
+# Node modules (if using any frontend build tools)
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# Build files
+dist/
+build/
+
+# Cache
+cache/
+*.cache
+.sass-cache/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Config files with sensitive data
+config/local.php
+config/production.php
+
+# Docker
+.dockerignore
+
+# Git
+*.orig
