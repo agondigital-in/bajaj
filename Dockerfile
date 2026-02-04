@@ -43,8 +43,9 @@ apache2-foreground' > /usr/local/bin/docker-entrypoint.sh \
 
 # Configure Apache
 RUN { \
-    echo '<VirtualHost *:3015>'; \
-    echo '    ServerAdmin webmaster@localhost'; \
+    echo '<VirtualHost *:3310>'; \
+    echo '    ServerName card.mybankingexperts.com'; \
+    echo '    ServerAdmin webmaster@mybankingexperts.com'; \
     echo '    DocumentRoot /app'; \
     echo '    DirectoryIndex index.php index.html'; \
     echo '    <Directory /app>'; \
@@ -56,10 +57,10 @@ RUN { \
     echo '    CustomLog ${APACHE_LOG_DIR}/access.log combined'; \
     echo '</VirtualHost>'; \
     } > /etc/apache2/sites-available/000-default.conf \
-    && echo 'Listen 3015' > /etc/apache2/ports.conf
+    && echo 'Listen 3310' > /etc/apache2/ports.conf
 
-# Expose port 3015
-EXPOSE 3015
+# Expose port 3310
+EXPOSE 3310
 
 # Set the entrypoint to our verification script
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
