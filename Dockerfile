@@ -14,7 +14,7 @@ WORKDIR /app
 COPY . /app/
 
 # Create uploads directory and set permissions
-RUN mkdir -p /app/uploads/screenshots \
+RUN mkdir -p /app/uploads \
     && chown -R www-data:www-data /app \
     && chown -R www-data:www-data /app/uploads \
     && chmod -R 755 /app \
@@ -28,12 +28,12 @@ RUN { \
     echo 'post_max_size = 64M'; \
     echo 'memory_limit = 128M'; \
     echo 'max_execution_time = 300'; \
-    } > /usr/local/etc/php/conf.d/uploads.ini
+} > /usr/local/etc/php/conf.d/uploads.ini
 
 # Create a verification script
 RUN echo '#!/bin/bash\n\
 if [ ! -d "/app/uploads" ]; then\n\
-  mkdir -p /app/uploads/screenshots\n\
+    mkdir -p /app/uploads\n\
 fi\n\
 chown -R www-data:www-data /app/uploads\n\
 chmod -R 755 /app/uploads\n\
@@ -43,9 +43,8 @@ apache2-foreground' > /usr/local/bin/docker-entrypoint.sh \
 
 # Configure Apache
 RUN { \
-    echo '<VirtualHost *:3310>'; \
-    echo '    ServerName card.mybankingexperts.com'; \
-    echo '    ServerAdmin webmaster@mybankingexperts.com'; \
+    echo '<VirtualHost *:3015>'; \
+    echo '    ServerAdmin webmaster@localhost'; \
     echo '    DocumentRoot /app'; \
     echo '    DirectoryIndex index.php index.html'; \
     echo '    <Directory /app>'; \
@@ -56,11 +55,11 @@ RUN { \
     echo '    ErrorLog ${APACHE_LOG_DIR}/error.log'; \
     echo '    CustomLog ${APACHE_LOG_DIR}/access.log combined'; \
     echo '</VirtualHost>'; \
-    } > /etc/apache2/sites-available/000-default.conf \
-    && echo 'Listen 3310' > /etc/apache2/ports.conf
+} > /etc/apache2/sites-available/000-default.conf \
+    && echo 'Listen 3015' > /etc/apache2/ports.conf
 
-# Expose port 3310
-EXPOSE 3310
+# Expose port 3015
+EXPOSE 3015
 
 # Set the entrypoint to our verification script
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
