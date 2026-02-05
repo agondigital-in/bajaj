@@ -98,7 +98,7 @@ require_once 'includes/functions.php';
                             <i class="fas fa-gift"></i>
                             <div class="offer-text">
                                 <span class="offer-highlight">Limited Offer:</span>
-                                <span class="offer-details">Get instant ₹150 in bank account - Only complete KYC</span>
+                                <span class="offer-details">Get ₹150 - Complete KYC</span>
                             </div>
                         </div>
                         
@@ -106,14 +106,52 @@ require_once 'includes/functions.php';
                             Apply Now
                         </button>
                         
+                        <div class="steps-title">
+                            <i class="fas fa-list-check"></i> How it Works:
+                        </div>
+                        
                         <div class="apply-features">
-                            <div class="feature-item">
-                                <i class="fas fa-bolt"></i>
-                                <span>Instant Approval</span>
+                            <div class="steps-row">
+                                <div class="feature-item">
+                                    <div class="step-number">1</div>
+                                    <span>Click Apply</span>
+                                </div>
+                                <div class="step-arrow">→</div>
+                                <div class="feature-item">
+                                    <div class="step-number">2</div>
+                                    <span>Complete KYC</span>
+                                </div>
                             </div>
-                            <div class="feature-item">
-                                <i class="fas fa-shield-check"></i>
-                                <span>Zero Processing Fee</span>
+                            
+                            <div class="steps-row">
+                                <div class="feature-item">
+                                    <div class="step-number">3</div>
+                                    <span>No Payment</span>
+                                </div>
+                                <div class="step-arrow">→</div>
+                                <div class="feature-item">
+                                    <div class="step-number">4</div>
+                                    <span>Take Screenshot</span>
+                                </div>
+                            </div>
+                            
+                            <div class="steps-row">
+                                <div class="feature-item">
+                                    <div class="step-number">5</div>
+                                    <span>Upload Here</span>
+                                </div>
+                                <div class="step-arrow">→</div>
+                                <div class="feature-item">
+                                    <div class="step-number">6</div>
+                                    <span>Enter Details</span>
+                                </div>
+                            </div>
+                            
+                            <div class="final-step">
+                                <div class="feature-item">
+                                    <div class="step-number">7</div>
+                                    <span>Get ₹150 in 10-20 min</span>
+                                </div>
                             </div>
                         </div>
                     </div>
