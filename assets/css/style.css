@@ -787,10 +787,27 @@ body {
         gap: 2rem;
     }
     
+    /* Order: Main Image (1) → Thumbnails (2) → Apply Box (3) → Description (4) */
+    .main-image-display {
+        order: 1;
+        padding: 1rem;
+    }
+    
     .thumbnails-sidebar {
+        order: 2;
         flex-direction: row;
         overflow-x: auto;
         padding-bottom: 0.5rem;
+        justify-content: center;
+    }
+    
+    .apply-sidebar {
+        order: 3;
+    }
+    
+    .description-section {
+        order: 4;
+        padding: 1rem;
     }
     
     .thumbnail-item {
@@ -802,16 +819,8 @@ body {
         height: 65px;
     }
     
-    .main-image-display {
-        padding: 1rem;
-    }
-    
     .main-image-display img {
         max-width: 100%;
-    }
-    
-    .description-section {
-        padding: 1rem;
     }
     
     .description-section h3 {
@@ -887,5 +896,4 @@ body {
     .feature-item i {
         font-size: 1.1rem;
     }
-}
 }
