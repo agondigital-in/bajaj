@@ -46,11 +46,12 @@ elseif (file_exists($envPath . '.env')) {
 }
 
 // Get database configuration with fallbacks
-$db_host = isset($env['DB_HOST']) ? $env['DB_HOST'] : 'localhost';
-$db_user = isset($env['DB_USER']) ? $env['DB_USER'] : 'root';
-$db_pass = isset($env['DB_PASS']) ? $env['DB_PASS'] : '';
-$db_name = isset($env['DB_NAME']) ? $env['DB_NAME'] : 'emi_card_system';
-$db_port = isset($env['DB_PORT']) ? $env['DB_PORT'] : '3306';
+// First try system environment variables (for Coolify/Docker)
+$db_host = getenv('DB_HOST') ?: (isset($env['DB_HOST']) ? $env['DB_HOST'] : 'localhost');
+$db_user = getenv('DB_USER') ?: (isset($env['DB_USER']) ? $env['DB_USER'] : 'root');
+$db_pass = getenv('DB_PASS') ?: (isset($env['DB_PASS']) ? $env['DB_PASS'] : '');
+$db_name = getenv('DB_NAME') ?: (isset($env['DB_NAME']) ? $env['DB_NAME'] : 'emi_card_system');
+$db_port = getenv('DB_PORT') ?: (isset($env['DB_PORT']) ? $env['DB_PORT'] : '3306');
 
 // Define constants
 define('DB_HOST', $db_host);
